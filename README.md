@@ -31,4 +31,4 @@ Dorodoro 是一个基于 NoneBot2 框架的文字冒险游戏插件，提供交�
 
 # 许可证
 本项目采用 AGPL-3.0 许可证。详见 LICENSE 文件。
-原项目 [doro_ending](https://github.com/ttq7/doro_ending) 采用 Apache-2.0 许可证。
+原项目 [doro_ending](https://github.com/ttq7/doro_ending) 采用 AGPL-3.0 许可证。
