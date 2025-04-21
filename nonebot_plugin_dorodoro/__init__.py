@@ -7,7 +7,7 @@ from nonebot.plugin import PluginMetadata
 
 
 __plugin_meta__ = PluginMetadata(
-    name="dorodoro",
+    name="doro大冒险",
     description="一个基于文字冒险的游戏插件",
     usage="""
     使用方法：
