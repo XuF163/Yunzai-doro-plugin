@@ -3,6 +3,23 @@ from nonebot.adapters.onebot.v11 import Bot, Event, Message
 from nonebot.params import CommandArg
 from .game_logic import get_next_node, update_user_state, get_node_data, is_end_node, user_game_state
 from .image_handler import send_images
+from nonebot.plugin import PluginMetadata
+
+
+__plugin_meta__ = PluginMetadata(
+    name="dorodoro",
+    description="一个基于文字冒险的游戏插件",
+    usage="""
+    使用方法：
+    /doro ：开始游戏
+    /choose <选项> 或 /选择 <选项>：在游戏中做出选择
+    """,
+    extra={
+        "author": "ATTomatoo",
+        "version": "1.0",
+        "priority": 5,
+    }
+)
 
 # 定义doro命令
 doro = on_command("doro", aliases={"多罗"}, priority=5, block=True)

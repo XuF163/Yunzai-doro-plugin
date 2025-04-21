@@ -13,6 +13,14 @@
             ]}
         }
     },
+    "hidden_tunnel": {
+    "text": "狭窄的通风管通向未知的地方，你似乎能闻到不同的气息：\nA.下水道的潮湿异味  B.办公室鱼缸的清新水汽  C.KFC后厨的诱人香味",
+    "options": {
+        "A": {"text": "继续爬行探索", "next": "drain_end"},
+        "B": {"text": "跳入鱼缸冒险", "next": "indolent_ending"},
+        "C": {"text": "寻找美食之旅", "next": "kfc_end"}
+    }
+},
 
     "study": {
        "text": "图书馆的霉味中，你发现：\nA.考研真题 B.发光菌菇 C.通风管异响\n（窗台放着半颗哦润吉）",
@@ -245,7 +253,7 @@
 },
 "takeoff_failed_end":{
     "text": "你决定把白纸撕掉，但你发现你无法从白纸中解开它...",
-    "image": "takeoff_failed_end.png",
+    "image": "takeofffailed_ending.jpeg",
     "is_end": true
 },
 "mind_broken_end":{
@@ -352,7 +360,7 @@
 },
 "good_end": {
     "text": "你和Doro携手找到了量子态的幸福，生活充满了彩虹般的色彩与希望...",
-    "image": "good_end.png",
+    "image": "good_ending.png",
     "is_end": true,
     "condition": ["解锁5个普通结局"]
 },
@@ -371,13 +379,6 @@
     "text": "你变成了一条鱼，生活在公司办公司的鱼缸里...",
     "image": "indolent_ending.png",
     "is_end": true
-},
-"hidden_tunnel": {
-    "text": "狭窄的通风管通向未知的地方，你似乎能闻到不同的气息：\nA.下水道的潮湿异味  B.办公室鱼缸的清新水汽  C.KFC后厨的诱人香味",
-    "options": {
-        "A": {"text": "继续爬行探索", "next": "drain_end"},
-        "B": {"text": "跳入鱼缸冒险", "next": "indolent_ending"},
-        "C": {"text": "寻找美食之旅", "next": "kfc_end"}
-    }
 }
+
 }
