@@ -11,8 +11,8 @@ __plugin_meta__ = PluginMetadata(
     description="一个基于文字冒险的游戏插件",
     usage="""
     使用方法：
-    /doro ：开始游戏
-    /choose <选项> 或 /选择 <选项>：在游戏中做出选择
+    doro ：开始游戏
+    choose <选项> 或 选择 <选项>：在游戏中做出选择
     """,
     extra={
         "author": "ATTomatoo",
