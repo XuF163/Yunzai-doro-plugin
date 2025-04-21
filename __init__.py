@@ -25,7 +25,7 @@ async def handle_doro(bot: Bot, event: Event):
         await doro.send("游戏初始化失败，请联系管理员。")
 
 # 定义choose命令
-choose = on_command("choose", aliases={"选择"}, priority=5)
+choose = on_command("choose", aliases={"选择"}, priority=5, block=True)
 
 @choose.handle()
 async def handle_choose(bot: Bot, event: Event, args: Message = CommandArg()):
