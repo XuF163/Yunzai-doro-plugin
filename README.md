@@ -15,16 +15,24 @@ Dorodoro 是一个基于 NoneBot2 框架的文字冒险游戏插件，提供交�
 
 ## 安装方法
 
-1. 确保已安装 NoneBot2 框架
+1. nb-cli安装（推荐）
+在bot配置文件同级目录下执行以下命令：
+   ```bash
+   nb plugin install nonebot-plugin-dorodoro
+   ```
 2. 使用 pip 安装插件：
    ```bash
    pip install nonebot-plugin-dorodoro
    ```
+打开 nonebot2 项目的 bot.py 文件, 在其中写入
+nonebot.load_plugin('nonebot_plugin_dingzhen')
+当然，如果是默认nb-cli创建的nonebot2的话，在bot路径pyproject.toml的[tool.nonebot]的plugins中添加nonebot_plugin_dingzhen即可。
+
 ## 使用方法
 开始游戏
-<br />`/doro` 
+<br />`doro` 
 <br />做出选择
-<br />`/choose <选项> `或` /选择 <选项>`
+<br />`choose <选项> `或` 选择 <选项>`
 
 ## 贡献指南
 欢迎提交 Issue 或 Pull Request 来改进本插件。
