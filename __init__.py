@@ -5,7 +5,7 @@ from .game_logic import get_next_node, update_user_state, get_node_data, is_end_
 from .image_handler import send_images
 
 # 定义doro命令
-doro = on_command("doro", aliases={"多罗"}, priority=5)
+doro = on_command("doro", aliases={"多罗"}, priority=5, block=True)
 
 @doro.handle()
 async def handle_doro(bot: Bot, event: Event):
@@ -46,7 +46,7 @@ async def handle_choose(bot: Bot, event: Event, args: Message = CommandArg()):
     if not next_data:
         await choose.finish("故事节点错误，请联系管理员。")
         return
-
+    
     update_user_state(user_id, next_node)
 
     msg = next_data["text"] + "\n"
@@ -54,8 +54,9 @@ async def handle_choose(bot: Bot, event: Event, args: Message = CommandArg()):
         msg += f"{key}. {opt['text']}\n"
 
     await send_images(bot, event, next_data.get("image"))
-    await choose.send(msg)
-
+    
     if is_end_node(next_data):
-        await choose.send("故事结束。")
+        await choose.finish(msg + "\n故事结束。")
         user_game_state.pop(user_id, None)
+    else:
+        await choose.finish(msg)  # 使用 finish 来终止事件传播
