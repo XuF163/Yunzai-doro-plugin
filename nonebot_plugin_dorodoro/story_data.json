@@ -160,17 +160,17 @@
         "C": {
             "text": "吃掉彩丸",
             "next": [
-                {"node": "clouds_ending", "probability": 0.6},
+                {"node": "clouds_ending", "probability": 0.5},
                 {"node": "soviet_ending", "probability": 0.3},
-                {"node": "despot_end", "probability": 0.1}
+                {"node": "despot_end", "probability": 0.3}
             ]
         },
         "D": {"text": "随机服药", "next": [
             {"node": "sloth_ending", "probability": 0.2},
             {"node": "race_ending", "probability": 0.2},
             {"node": "staffawakening_ending", "probability": 0.2},
-            {"node": "clouds_ending", "probability": 0.3},
-            {"node": "despot_end", "probability": 0.1}
+            {"node": "clouds_ending", "probability": 0.2},
+            {"node": "despot_end", "probability": 0.2}
         ]}
     }
 },
