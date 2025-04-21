@@ -160,15 +160,17 @@
         "C": {
             "text": "吃掉彩丸",
             "next": [
-                {"node": "clouds_ending", "probability": 0.7},
-                {"node": "soviet_ending", "probability": 0.3}
+                {"node": "clouds_ending", "probability": 0.6},
+                {"node": "soviet_ending", "probability": 0.3},
+                {"node": "despot_end", "probability": 0.1}
             ]
         },
         "D": {"text": "随机服药", "next": [
             {"node": "sloth_ending", "probability": 0.2},
             {"node": "race_ending", "probability": 0.2},
-            {"node": "staffawakening_ending", "probability": 0.3},
-            {"node": "clouds_ending", "probability": 0.3}
+            {"node": "staffawakening_ending", "probability": 0.2},
+            {"node": "clouds_ending", "probability": 0.3},
+            {"node": "despot_end", "probability": 0.1}
         ]}
     }
 },
@@ -185,7 +187,107 @@
         ]}
     }
 },
-
+"despot_end": {
+    "text": "你睁开双眼，发现自己站在空无一物的白色空间中，耳边响起一个声音：\n你已经完成了第999次轮回。这一次，你想做什么？",
+    "options": {
+        "A": {"text": "寻找超脱的方法", "next": "despot_end1"},
+        "B": {"text": "获得永恒的生命", "next": "immortal_end"},
+        "C": {"text": "放弃挣扎，过平凡生活", "next": "netcafe_clerk_end"},
+        "D": {"text": "随机分配", "next": [
+            {"node": "despot_end1", "probability": 0.2},
+            {"node": "immortal_end", "probability": 0.3},
+            {"node": "netcafe_clerk_end", "probability": 0.5}
+        ]}
+    }
+},
+"netcafe_clerk_end": {
+    "text": "你走出虚无，回到现实社会。",
+    "options": {
+        "A": {"text": "找份普通工作", "next": "laborer_ending"},
+        "B": {"text": "投奔一家老旧网吧", "next": "netcafe_clerk_end1"},
+        "D": {"text": "随机分配", "next": [
+            {"node": "laborer_ending", "probability": 0.5},
+            {"node": "netcafe_clerk_end1", "probability": 0.5}
+        ]}
+    }
+},
+"netcafe_clerk_end1": {
+    "text": "你成了网吧的前台网管，收敛了曾经的野心。",
+    "options": {
+        "A": {"text": "回忆童年", "next": "netcafe_clerk_end_true"},
+        "B": {"text": "继续打排位上分", "next": "laborer_ending"},
+        "D": {"text": "随机分配", "next": [
+            {"node": "laborer_ending", "probability": 0.5},
+            {"node": "netcafe_clerk_end_true", "probability": 0.5}
+        ]}
+    }
+},
+"immortal_end": {
+    "text": "一位神秘旅人告诫你：“永生或许并非祝福。",
+    "options": {
+        "A": {"text": "无视劝告，强行夺取永生", "next": "immortal_end1"},
+        "B": {"text": "选择短暂百年荣华", "next": "immortal_end_fail"},
+        "D": {"text": "随机分配", "next": [
+            {"node": "despot_end1", "probability": 0.5},
+            {"node": "netcafe_clerk_end", "probability": 0.5}
+        ]}
+    }
+},
+"immortal_end1": {
+    "text": "你吞下永恒之果，获得永生之躯。千年之后，目睹挚爱离世，国度覆灭。",
+    "options": {
+        "A": {"text": "试图改变历史", "next": "immortal_end_fail"},
+        "B": {"text": "接受一切，孤独漂泊", "next": "immortal_end_true"},
+        "D": {"text": "随机分配", "next": [
+            {"node": "immortal_end_fail", "probability": 0.5},
+            {"node": "immortal_end_true", "probability": 0.5}
+        ]}
+    }
+},
+"despot_end1": {
+    "text": "你踏上了追寻禁忌知识的旅程，途中一位疯癫老者递给你一本破烂的书。",
+    "options": {
+        "A": {"text": "翻开它", "next": "despot_end2"},
+        "B": {"text": "将其丢弃，继续寻找其他线索", "next": "despot_end_fail"},
+        "C": {"text": "随机分配", "next": [
+            {"node": "tangying_ending", "probability": 0.5},
+            {"node": "despot_end_fail", "probability": 0.5}
+        ]}
+    }
+},
+"despot_end2": {
+    "text": "书页泛黄，记载着‘虚空之源’的秘密。你需献祭一段回忆换取一块虚空之石。",
+    "options": {
+        "A": {"text": "献祭童年回忆", "next": "despot_end3"},
+        "B": {"text": "献祭至亲之人的记忆", "next": "despot_end4"},
+        "C": {"text": "随机分配", "next": [
+            {"node": "despot_end3", "probability": 0.5},
+            {"node": "despot_end4", "probability": 0.5}
+        ]}
+    }
+},
+"despot_end3": {
+    "text": "献祭完成，你获得虚空之石，感知到自己便是世界本源。",
+    "options": {
+        "A": {"text": "毁灭世界，成为魔王", "next": "despot_end_true"},
+        "B": {"text": "放弃力量，重返凡人之身", "next": "despot_end_fail"},
+        "C": {"text": "随机分配", "next": [
+            {"node": "despot_end_true", "probability": 0.5},
+            {"node": "despot_end_fail", "probability": 0.5}
+        ]}
+    }
+},
+"despot_end4": {
+    "text": "你泪流满面，完成献祭，虚空之石散发着幽光。",
+    "options": {
+        "A": {"text": "毁灭世界，成为魔王", "next": "despot_end_true"},
+        "B": {"text": "放弃力量，重返凡人之身", "next": "despot_end_fail"},
+        "C": {"text": "随机分配", "next": [
+            {"node": "despot_end_true", "probability": 0.5},
+            {"node": "despot_end_fail", "probability": 0.5}
+        ]}
+    }
+},
 "meet": {
     "text": "神秘人Doro出现：\nA.分享橘子 B.查看相册 C.阅读古书\n（ta口袋里露出纸巾）",
     "options": {
@@ -225,11 +327,31 @@
     "options": {
         "A": {"text": "重温噩梦", "next": "gaokao_ending"},
         "B": {"text": "触摸画面", "next": "dream_end"},
-        "C": {"text": "撕下白纸", "next": "takeoff_failed_end"},
+        "C": {
+            "text": "撕下白纸", 
+            "next": [
+                {"node": "takeoff_failed_end", "probability": 0.7},
+                {"node": "takeoff_failed_end1", "probability": 0.3}
+            ]
+        },
         "D": {"text": "随机回忆", "next": [
             {"node": "gaokao_ending", "probability": 0.2},
             {"node": "dream_end", "probability": 0.3},
-            {"node": "takeoff_failed_end", "probability": 0.5}
+            {"node": "takeoff_failed_end", "probability": 0.3},
+            {"node": "takeoff_failed_end1", "probability": 0.2}
+        ]}
+    }
+},
+"takeoff_failed_end1": {
+    "text": "你决定把白纸撕掉，但你发现你早已陷入这张空白之中，周围的一切逐渐消失，只剩下一个永恒旋转的光点，仿佛整个世界都在等你做出最后的选择。",
+    "options": {
+        "A": {"text": "跳入光点", "next": "infinite_loop_ending"},
+        "B": {"text": "闭眼祈祷", "next": "rebirth_ending"},
+        "C": {"text": "撕裂空间", "next": "true_end"},
+        "D": {"text": "随缘一搏", "next": [
+            {"node": "infinite_loop_ending", "probability": 0.3},
+            {"node": "rebirth_ending", "probability": 0.4},
+            {"node": "true_end", "probability": 0.3}
         ]}
     }
 },
@@ -244,6 +366,36 @@
 "postgraduate_ending": {
     "text": "录取通知书如期而至，可发际线也在悄然变化，未来的学术之路在眼前展开...",
     "image": "postgraduate_ending.png",
+    "is_end": true
+},
+"immortal_end_fail": {
+    "text": "命运无情，将你抛弃于岁月洪流，你终究只是尘埃...",
+    "image": "none.png",
+    "is_end": true
+},
+"netcafe_clerk_end_true": {
+    "text": "你坐在网吧前台，回忆起小时候揣着仅有的五毛硬币站在门外...",
+    "image": "netcafe_clerk_end_true.jpg",
+    "is_end": true
+},
+"laborer_ending": {
+    "text": "你的人生泛不起波澜，如同浮萍般随波逐流...",
+    "image": "laborer_ending.png",
+    "is_end": true
+},
+"immortal_end_true": {
+    "text": "你肆意奔跑，放任时间如沙粒般从指尖流走。最终，孤独是你唯一的伴侣...",
+    "image": "immortal_end_true.jpg",
+    "is_end": true
+},
+"despot_end_fail": {
+    "text": "你迷失在虚无与梦境之间，最终化作尘埃，轮回再次开始。...",
+    "image": "none.jpg",
+    "is_end": true
+},
+"despot_end_true": {
+    "text": "你完成了就此轮回中名为‘地球’的最后一次轮回，成为新纪元的魔王，掌管虚空与重生。...",
+    "image": "despot_end_true.jpg",
     "is_end": true
 },
 "procrastination_ending": {
@@ -379,6 +531,22 @@
     "text": "你变成了一条鱼，生活在公司办公司的鱼缸里...",
     "image": "indolent_ending.png",
     "is_end": true
+},
+"infinite_loop_ending": {
+    "text": "你跳入光点，眼前世界瞬间扭曲，再次回到‘欢迎来到Doro的世界！’\n你意识到，这或许是无尽的轮回，或许……你本就是这里的一部分。",
+    "image": "loop.png",
+    "is_end": true
+},
+"rebirth_ending": {
+    "text": "你闭上双眼，默念一个无人知晓的名字。光点悄然消散，一缕晨光洒在你脸上——新的世界悄然开启，你成为了另一个自己。",
+    "image": "rebirth.png",
+    "is_end": true
+},
+"true_end": {
+    "text": "你撕裂空间，一道璀璨裂缝浮现，Doro的声音在耳边回荡：‘原来你就是命定之人。’\n你成功跳脱这个虚拟轮回，获得‘旁观者之眼’，从此能看破所有世界线的秘密。",
+    "image": "true_end.png",
+    "is_end": true,
+    "secret": {"👁️": "解锁后可开启‘观测者模式’体验隐藏剧情"}
 }
 
 }
