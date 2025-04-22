@@ -9,6 +9,7 @@ from nonebot.plugin import PluginMetadata
 __plugin_meta__ = PluginMetadata(
     name="doro大冒险",
     description="一个基于文字冒险的游戏插件",
+    type="application",
     usage="""
     使用方法：
     doro ：开始游戏
@@ -16,7 +17,7 @@ __plugin_meta__ = PluginMetadata(
     """,
     extra={
         "author": "ATTomatoo",
-        "version": "1.4.2",
+        "version": "1.4.3",
         "priority": 5,
         "plugin_type": "NORMAL"
     }
