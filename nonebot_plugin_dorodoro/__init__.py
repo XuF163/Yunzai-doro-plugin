@@ -15,9 +15,10 @@ __plugin_meta__ = PluginMetadata(
     doro ：开始游戏
     choose <选项> 或 选择 <选项>：在游戏中做出选择
     """,
+    homepage="https://github.com/ATTomatoo/dorodoro",
     extra={
         "author": "ATTomatoo",
-        "version": "1.5.0",
+        "version": "1.5.1",
         "priority": 5,
         "plugin_type": "NORMAL"
     }
