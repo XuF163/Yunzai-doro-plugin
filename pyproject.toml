@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "nonebot-plugin-dorodoro"
-version = "1.4.0"
+name = "nonebot_plugin_dorodoro"
+version = "1.4.1"
 description = "一个基于文字冒险的NoneBot插件"
 authors = ["ATTomatoo <attomato@qqs.com>"]
 license = "MIT"

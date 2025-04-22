@@ -16,7 +16,7 @@ __plugin_meta__ = PluginMetadata(
     """,
     extra={
         "author": "ATTomatoo",
-        "version": "1.4.0",
+        "version": "1.4.1",
         "priority": 5,
         "plugin_type": "NORMAL"
     }
