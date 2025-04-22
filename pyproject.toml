@@ -1,10 +1,11 @@
 [tool.poetry]
 name = "nonebot_plugin_dorodoro"
-version = "1.4.9"
+version = "1.5.0"
 description = "一个基于文字冒险的游戏插件"
 authors = ["ATTomatoo"]
 license = "AGPL3.0"
 readme = "README.md"
+homepage = "https://github.com/ATTomatoo/dorodoro"
 repository = "https://github.com/ATTomatoo/dorodoro"
 keywords = ["nonebot", "nonebot2", "nonebot_plugin", "dorodoro"]
 
