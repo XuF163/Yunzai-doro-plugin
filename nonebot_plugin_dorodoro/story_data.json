@@ -364,7 +364,7 @@
     "secret": {"🔑": "找到鼠王钥匙可解锁隐藏剧情"}
 },
 "jerboff_end": {
-"text": "DORO决定尝试打胶，从早上开始，一直不停歇...",
+    "text": "DORO决定尝试打胶，从早上开始，一直不停歇...",
     "image": "dajiao.jpg",
     "is_end": true,
 },
