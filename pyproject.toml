@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "nonebot-plugin-dorodoro"
+version = "1.4.0"
+description = "一个基于文字冒险的NoneBot插件"
+authors = ["ATTomatoo <attomato@qqs.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "nonebot_plugin_dorodoro" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+nonebot2 = "^2.3.3"
+nonebot-adapter-onebot = "^2.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
