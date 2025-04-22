@@ -1,18 +1,20 @@
-[tool.poetry]
+[project]
 name = "nonebot_plugin_dorodoro"
-version = "1.4.7"
+version = "1.4.8"
 description = "一个基于文字冒险的NoneBot插件"
-authors = ["ATTomatoo <attomato@qqs.com>"]
-license = "AGPL-3.0"
+authors = [{ name = "ATTomatoo", email = "attomato@qqs.com" }]
+license = { text = "AGPL-3.0" }
 readme = "README.md"
-homepage = "https://github.com/ATTomatoo/dorodoro"
-repository = "https://github.com/ATTomatoo/dorodoro"
-packages = [{ include = "nonebot_plugin_dorodoro" }]
+requires-python = ">=3.8"
 
-[tool.poetry.dependencies]
-python = "^3.8"
-nonebot2 = "^2.3.3"
-nonebot-adapter-onebot = "^2.3.3"
+dependencies = [
+  "nonebot2>=2.3.3",
+  "nonebot-adapter-onebot>=2.3.3"
+]
+
+[project.urls]
+Homepage = "https://github.com/ATTomatoo/dorodoro"
+Repository = "https://github.com/ATTomatoo/dorodoro"
 
 [build-system]
 requires = ["poetry-core"]
