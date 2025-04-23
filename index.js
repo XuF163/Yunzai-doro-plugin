@@ -1,10 +1,16 @@
-// yunzai-doro-plugin/index.js
-import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import fs from 'node:fs'; // 确保导入 fs
 
-// Define plugin root
-const __dirname = path.dirname(import.meta.url.replace(/^file:\/\/\/?/, ''));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const pluginName = path.basename(__dirname);
+
+logger.info(`[${pluginName} Index] __dirname is: ${__dirname}`);
+
+const appsPath = path.join(__dirname, 'apps');
+
+logger.info(`[${pluginName} Index] Calculated appsPath is: ${appsPath}`); // 打印确认
 
 logger.info(`---------`);
 logger.info(`【${pluginName}】载入成功`);
