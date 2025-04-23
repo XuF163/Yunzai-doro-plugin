@@ -2,19 +2,28 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import lodash from 'lodash'; // Using lodash for _.sample (optional)
-import { getConfig as cfg } from '../lib/config.js';
+import { PLUGIN_ROOT, getConfig as cfg } from '../lib/config.js';
 import ImageHandler from './ImageHandler.js';
 
-// Define plugin root and resources path
-const __dirname = path.dirname(import.meta.url.replace(/^file:\/\/\/?/, ''));
-const pluginRoot = path.join(__dirname, '..');
-const resourcesPath = path.join(pluginRoot, 'resources');
 
-// Load configuration
-const config = cfg().doroAdventure || {};
-const storyDataFile = config.storyDataFile || 'story_data.json';
+const resourcesPath = path.join(PLUGIN_ROOT, 'resources');
+logger.info(`[Doro Module] Using resourcesPath: ${resourcesPath}`);
+
+// --- 使用 cfg() 获取配置 ---
+// 调用 cfg() 函数来获取配置对象
+const pluginConfig = cfg() || {}; // 获取整个插件配置，提供默认空对象
+const doroConfig = pluginConfig.doroAdventure || {}; // 获取 doroAdventure 子对象，提供默认空对象
+
+// 从 doroConfig 中获取具体配置项
+const imageSubDir = doroConfig.imageSubDir || 'images/';
+const storyDataFile = doroConfig.storyDataFile || 'story_data.json';
+
+// --- 后续路径计算 ---
+const imageDir = path.resolve(resourcesPath, imageSubDir);
 const storyDataPath = path.resolve(resourcesPath, storyDataFile);
 
+logger.info(`[Doro Module] Image directory: ${imageDir}`);
+logger.info(`[Doro Module] Story data path: ${storyDataPath}`);
 let STORY_DATA = {};
 try {
     const rawData = fs.readFileSync(storyDataPath, 'utf-8');

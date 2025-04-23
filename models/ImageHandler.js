@@ -1,27 +1,29 @@
 // yunzai-doro-plugin/models/ImageHandler.js
 import fs from 'node:fs';
 import path from 'node:path';
-import { getConfig as cfg } from '../lib/config.js';
+import { PLUGIN_ROOT, getConfig as cfg } from '../lib/config.js';
 
 
 // Define plugin root and resources path
-const __dirname = path.dirname(import.meta.url.replace(/^file:\/\/\/?/, ''));
-const pluginRoot = path.join(__dirname, '..');
-const resourcesPath = path.join(pluginRoot, 'resources');
 
-// Load configuration
-const config = cfg().doroAdventure || {};  // Get config specific to this plugin
-const imageSubDir = config.imageSubDir || 'images/'; // Default from defSet if not in user config
-const imageDir = path.resolve(resourcesPath, imageSubDir); // Use resolve for absolute path
+const resourcesPath = path.join(PLUGIN_ROOT, 'resources');
+logger.info(`[Doro Module] Using resourcesPath: ${resourcesPath}`);
 
-logger.info(`[Doro冒险] 图片目录: ${imageDir}`);
+// --- 使用 cfg() 获取配置 ---
+// 调用 cfg() 函数来获取配置对象
+const pluginConfig = cfg() || {}; // 获取整个插件配置，提供默认空对象
+const doroConfig = pluginConfig.doroAdventure || {}; // 获取 doroAdventure 子对象，提供默认空对象
 
-// Ensure image directory exists (optional, good practice)
-if (!fs.existsSync(imageDir)) {
-    logger.warn(`[Doro冒险] 图片目录不存在: ${imageDir}`);
-    // You might want to create it: fs.mkdirSync(imageDir, { recursive: true });
-}
+// 从 doroConfig 中获取具体配置项
+const imageSubDir = doroConfig.imageSubDir || 'images/';
+const storyDataFile = doroConfig.storyDataFile || 'story_data.json';
 
+// --- 后续路径计算 ---
+const imageDir = path.resolve(resourcesPath, imageSubDir);
+const storyDataPath = path.resolve(resourcesPath, storyDataFile);
+
+logger.info(`[Doro Module] Image directory: ${imageDir}`);
+logger.info(`[Doro Module] Story data path: ${storyDataPath}`);
 class ImageHandler {
     /**
      * Gets the absolute path for an image name.
