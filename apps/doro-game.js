@@ -109,7 +109,7 @@ export default class DoroAdventure extends plugin {
             ]
         });
 
-       // logger.info('[Doro冒险 App] 插件已加载');
+       logger.info('[Doro冒险 App] 插件已加载');
     }
 
     /**
