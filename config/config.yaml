@@ -4,3 +4,4 @@
 doroAdventure:
   imageSubDir: "images/"
   storyDataFile: "story_data.json"
+  dailyLimit: 2

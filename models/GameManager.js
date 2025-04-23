@@ -98,7 +98,9 @@ class GameManager {
 
         if (response.isEnd) {
             response.text += "\n\n🎉 故事结束 🎉";
-            this.clearUserState(userId); // Clear state when game ends
+            this.clearUserState(userId);
+
+
         }
 
         return response;

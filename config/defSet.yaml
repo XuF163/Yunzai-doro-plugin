@@ -5,3 +5,4 @@ doroAdventure:
   imageSubDir: "images/"
   # 游戏数据文件相对于yunzai-doro-plugin/resources/的路径
   storyDataFile: "story_data.json"
+  dailyLimit: 2
