@@ -2,6 +2,7 @@
 
 import GameManager from '../models/GameManager.js';
 import { getConfig as cfg } from '../lib/config.js';
+const redisKey = "Yz:doroplugin:list"; // 统一 Key
 export default class DoroAdventure extends plugin {
     constructor() {
         super({
@@ -41,7 +42,7 @@ export default class DoroAdventure extends plugin {
         // 从配置中读取 dailyLimit，提供默认值以防配置缺失
         const dailyPlayLimit = doroConfig.dailyLimit ?? 2;
 
-         const redisKey = "Yz:doroplugin:list"; // 统一 Key
+
 
 
         let list = {}; // 默认空对象
