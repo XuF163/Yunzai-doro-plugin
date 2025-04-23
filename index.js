@@ -29,7 +29,7 @@ logger.info(`---------`);
 
 
 // Dynamically load all apps from the apps directory
-const appsPath = path.join(__dirname, 'apps');
+//const appsPath = path.join(__dirname, 'apps');
 const files = fs.readdirSync(appsPath).filter(file => file.endsWith('.js'));
 
 let apps = {};
