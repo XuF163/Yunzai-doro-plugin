@@ -89,7 +89,7 @@
 
 import GameManager from '../models/GameManager.js';
 
-export class DoroAdventure extends plugin {
+export default class DoroAdventure extends plugin {
     constructor() {
         super({
             name: 'Doro大冒险',
@@ -109,7 +109,7 @@ export class DoroAdventure extends plugin {
             ]
         });
 
-        logger.info('[Doro冒险 App] 插件已加载');
+       // logger.info('[Doro冒险 App] 插件已加载');
     }
 
     /**
