@@ -1,0 +1,13 @@
+{
+  "name": "yunzai-doro-plugin",
+  "version": "1.0.0",
+  "description": "Yunzai版 Doro 大冒险文字游戏",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {},
+  "author": "ATTomatoo (Original) & Refactorer",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

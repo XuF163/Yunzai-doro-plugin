@@ -1,0 +1,6 @@
+# yunzai-doro-plugin/config/config.yaml
+# Doro大冒险 用户配置 - 一般无需修改，除非你想改变资源目录结构
+# 可在此处覆盖 defSet.yaml 中的默认值
+doroAdventure:
+  imageSubDir: "images/"
+  storyDataFile: "story_data.json"

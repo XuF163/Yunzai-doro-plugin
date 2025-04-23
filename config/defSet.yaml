@@ -1,0 +1,7 @@
+# yunzai-doro-plugin/config/defSet.yaml
+# Doro大冒险 默认配置
+doroAdventure:
+  # 资源图片相对于yunzai-doro-plugin/resources/的路径
+  imageSubDir: "images/"
+  # 游戏数据文件相对于yunzai-doro-plugin/resources/的路径
+  storyDataFile: "story_data.json"
