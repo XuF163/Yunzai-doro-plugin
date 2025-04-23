@@ -130,14 +130,14 @@ export default class DoroAdventure extends plugin {
         // 构建要发送的消息数组
         const messageToSend = [response.text];
         if (response.segments && response.segments.length > 0) {
-            messageToSend.push(...response.segments);
+            messageToSend.push(segment.button(...response.buttons));
         }
         // 添加按钮数据（如果存在）
         if (response.buttons && response.buttons.length > 0) {
              // Yunzai 的 e.reply 通常能直接处理这种嵌套数组结构来生成按钮
              // 如果不行，可能需要查阅你使用的 Yunzai 版本或适配器 (oicq/icqq) 的文档
              // 看是否需要用 segment.keyboard(response.buttons) 或类似方式包装
-            messageToSend.push(response.buttons);
+            messageToSend.push(segment.button(...response.buttons));
             logger.debug(`[Doro冒险 App] 发送按钮: ${JSON.stringify(response.buttons)}`); // 调试日志
         }
 
@@ -171,11 +171,12 @@ export default class DoroAdventure extends plugin {
         const messageToSend = [response.text];
         if (response.segments && response.segments.length > 0) {
             messageToSend.push(...response.segments);
+
         }
         // 添加按钮数据（如果存在且不是结束节点）
         if (!response.isEnd && response.buttons && response.buttons.length > 0) {
              // 同上，直接传递按钮数据给 e.reply
-            messageToSend.push(response.buttons);
+            messageToSend.push(segment.button(...response.buttons));
              logger.debug(`[Doro冒险 App] 发送按钮: ${JSON.stringify(response.buttons)}`); // 调试日志
         } else if (response.isEnd) {
              // 游戏结束时，GameManager.formatNodeResponse 已添加结束文本，这里不再发送按钮
