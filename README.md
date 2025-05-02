@@ -1,8 +1,5 @@
-# Dorodoro 文字冒险游戏插件
 
-
-![License](https://img.shields.io/badge/License-AGPL--3.0-orange)
-
+![doro头](https://socialify.git.ci/XuF163/Yunzai-doro-plugin/image?custom_description=+Dorodoro+%E6%96%87%E5%AD%97%E5%86%92%E9%99%A9%E6%B8%B8%E6%88%8F%E6%8F%92%E4%BB%B6&description=1&language=1&name=1&owner=1&pattern=Overlapping+Hexagons&stargazers=1&theme=Light)
 Yunzai-doro-plugin是一个基于NoneBot2-Plugin-Dorodoro通过CV方式实现的的文字冒险游戏插件，提供交互式故事体验。
 
 ## 功能特性
@@ -11,7 +8,7 @@ Yunzai-doro-plugin是一个基于NoneBot2-Plugin-Dorodoro通过CV方式实现的
 - 支持分支剧情选择
 - 可配合图片展示增强游戏体验
 - 多用户独立游戏进度保存
-
+- 按钮支持,助力DAU+
 ## 安装方法
 
 1. git安装（推荐）
@@ -38,4 +35,15 @@ Yunzai-doro-plugin是一个基于NoneBot2-Plugin-Dorodoro通过CV方式实现的
 
 # 许可证
 本项目采用 AGPL-3.0 许可证。详见 LICENSE 文件。
-原项目 [doro_ending](https://github.com/ttq7/doro_ending) 采用 AGPL-3.0 许可证。
+原项目 [doro_ending](https://github.com/ttq7/doro_ending) 采用 AGPL-3.0 许可证。  
+本项目上游Bot框架[TRSS-Yunzai](https://github.com/TimeRainStarSky/Yunzai)GPL-3.0许可证。  
+
+> [!WARNING]
+> **关于修改和再分发声明：**  
+> 根据 AGPL-3.0 许可证的规定，如果您基于本项目（或其修改版本）开发并**通过网络向用户提供服务**，您**必须**向这些用户提供对应服务所使用的**完整且可工作的源代码**，包括您对本项目的任何修改。
+>
+> **完整源代码** 应包含所有必要的文件，以便接收者能够便捷地编译、安装和运行该服务。
+>
+> **严禁任何形式的私有化使用或私有化传播，若未能遵守AGPL-3.0条款，即视为丧失使用本项目的许可权利。**
+>
+> 
