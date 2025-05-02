@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {},
-  "author": "ATTomatoo (Original) & Refactorer",
-  "license": "MIT",
+  "author": " 429(Refactorer) & ATTomatoo (Original) ",
+  "license": "AGPl3.0",
   "dependencies": {
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21"

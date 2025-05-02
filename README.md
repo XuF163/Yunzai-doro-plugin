@@ -16,6 +16,10 @@ Yunzai-doro-plugin是一个基于NoneBot2-Plugin-Dorodoro通过CV方式实现的
    ```bash
    git clone https://github.com/XuF163/Yunzai-doro-plugin.git ./plugins/Yunzai-doro-plugin
    ```
+国服：
+```bash     
+git clone https://gitee.com/xyzqwefd/Yunzai-doro-plugin.git ./plugins/Yunzai-doro-plugin
+````
 也许有依赖：
 ```bash
 pnpm i

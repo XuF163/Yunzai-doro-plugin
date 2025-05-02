@@ -13,7 +13,43 @@ logger.info(`[${pluginName} Index] __dirname is: ${__dirname}`);
 
 const appsPath = path.join(__dirname, 'apps');
 
-logger.info(`[${pluginName} Index] Calculated appsPath is: ${appsPath}`); // 打印确认
+// --- 配置文件路径定义 ---
+const configDir = path.join(__dirname, 'config'); // 配置文件夹路径
+const defaultConfigPath = path.join(configDir, 'defSet.yaml'); // 默认配置文件路径
+const userConfigPath = path.join(configDir, 'config.yaml'); // 用户配置文件路径
+
+// --- 自动复制配置文件的逻辑 ---
+try {
+  // 检查用户配置文件是否存在
+  if (!fs.existsSync(userConfigPath)) {
+    logger.info(`[${pluginName}] 未找到用户配置文件 ${userConfigPath}，尝试从默认配置复制...`);
+
+    // 检查默认配置文件是否存在
+    if (fs.existsSync(defaultConfigPath)) {
+      // 确保配置目录存在，如果不存在则创建
+      if (!fs.existsSync(configDir)) {
+        fs.mkdirSync(configDir, { recursive: true }); // recursive: true 可以创建多层不存在的目录
+        //logger.debug(`[${pluginName}] 已创建配置目录: ${configDir}`);
+      }
+      // 复制文件（使用同步方法，因为这是在启动时执行）
+      fs.copyFileSync(defaultConfigPath, userConfigPath);
+      logger.info(`[${pluginName}] 成功将 ${defaultConfigPath} 复制到 ${userConfigPath}`);
+    } else {
+      // 如果默认配置文件也不存在，则发出警告
+      logger.warn(`[${pluginName}] 警告：默认配置文件 ${defaultConfigPath} 不存在，无法自动创建用户配置！`);
+    }
+  } else {
+    // 如果用户配置文件已存在，则无需操作
+    logger.debug(`[${pluginName}] 用户配置文件 ${userConfigPath} 已存在。`);
+  }
+} catch (error) {
+  // 捕获并记录复制或检查过程中可能发生的任何错误
+  logger.error(`[${pluginName}] 自动处理配置文件时出错:`, error);
+}
+// --- 配置文件处理结束 ---
+
+
+
 
 logger.info(`---------`);
 logger.info(`【${pluginName}】载入成功`);
