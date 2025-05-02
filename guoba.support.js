@@ -23,7 +23,7 @@ export function supportGuoba() {
   return {
     // 插件信息 (根据需要调整，可复用之前的建议)
     pluginInfo: {
-      name: 'yunzai-doro-plugin', // 插件英文名，保持唯一
+      name: 'Doro-plugin', // 插件英文名，保持唯一
       title: 'Doro大冒险插件',    // 插件中文名
       description: 'Yunzai V3 版 Doro 大冒险文字游戏插件，提供后台配置。', // 插件描述
       author: ['429(Refactorer)&ATTomatoo (Original)  '], // 作者列表
