@@ -22,9 +22,16 @@ export default class DoroAdventure extends plugin {
                 }
             ],
             task: {
-        cron: "0 0 0 * * *",
+        cron: "0 30 0 * * *",
         name: "重置每日doro结局次数",
-        fnc: () => redis.set("Yz:doroplugin:list", JSON.stringify({}))
+        fnc: async () => {
+            try {
+                await redis.set("Yz:doroplugin:list", JSON.stringify({}));
+                logger.info('[Doro冒险 App] 每日游戏次数已重置');
+            } catch (error) {
+                logger.error('[Doro冒险 App] 重置每日游戏次数失败:', error);
+            }
+        }
       }
         });
 
@@ -129,7 +136,7 @@ export default class DoroAdventure extends plugin {
             messageToSend.push(segment.button(...response.buttons));
              logger.debug(`[Doro冒险 App] 发送按钮: ${JSON.stringify(response.buttons)}`); // 调试日志
         } else if (response.isEnd) {
-             // 游戏结束时，GameManager.formatNodeResponse 已添加结束文本，这里不再发送按钮
+             // 游戏结束时，添加"我也要玩"按钮
                  try {
                 let list = {};
                 const redisData = await redis.get(redisKey);
@@ -144,8 +151,12 @@ export default class DoroAdventure extends plugin {
                 logger.error(`[Doro冒险 makeChoice] 更新 Redis 计数失败 `, error);
             }
 
-
-             logger.info(`[Doro冒险 App] 用户 ${userId} 到达结局，不发送按钮`);
+            // 添加"我也要玩"按钮
+            const playAgainButton = [[
+                { text: "我也要玩", callback: "/doro" }
+            ]];
+            messageToSend.push(segment.button(...playAgainButton));
+            logger.info(`[Doro冒险 App] 用户 ${userId} 到达结局，发送"我也要玩"按钮`);
         }
 
 

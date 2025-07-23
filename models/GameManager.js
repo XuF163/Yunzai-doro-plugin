@@ -1,4 +1,4 @@
-// yunzai-doro-plugin/models/GameManager.js
+// yunzai-doro-plugin/model/GameManager.js
 import fs from 'node:fs';
 import path from 'node:path';
 import lodash from 'lodash'; // Using lodash for _.sample (optional)

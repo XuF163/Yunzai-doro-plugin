@@ -1,4 +1,4 @@
-// yunzai-doro-plugin/models/ImageHandler.js
+// yunzai-doro-plugin/model/ImageHandler.js
 import fs from 'node:fs';
 import path from 'node:path';
 import { PLUGIN_ROOT, getConfig as cfg } from '../lib/config.js';
