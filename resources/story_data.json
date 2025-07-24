@@ -147,7 +147,7 @@
     }
 },
 "work_depth2_mad": {
-    "text": "HR递来药丸：\nA.红色提神丸 B.蓝色遗忘剂 C.彩色致幻剂",
+    "text": "HR递来药丸：\nA.红色提神丸 B.蓝色遗忘剂 C.彩色致幻剂 D.拒绝服药",
     "options": {
         "A": {
             "text": "吞下红丸",
@@ -165,12 +165,33 @@
                 {"node": "despot_end", "probability": 0.3}
             ]
         },
-        "D": {"text": "随机服药", "next": [
+        "D": {"text": "反抗系统", "next": "corporate_resistance"},
+        "E": {"text": "随机服药", "next": [
             {"node": "sloth_ending", "probability": 0.2},
             {"node": "race_ending", "probability": 0.2},
             {"node": "staffawakening_ending", "probability": 0.2},
             {"node": "clouds_ending", "probability": 0.2},
-            {"node": "despot_end", "probability": 0.2}
+            {"node": "despot_end", "probability": 0.1},
+            {"node": "corporate_resistance", "probability": 0.1}
+        ]}
+    }
+},
+"corporate_resistance": {
+    "text": "你选择反抗公司制度：\nA.辞职抗议 B.暗中破坏 C.寻求盟友",
+    "options": {
+        "A": {"text": "愤然离职", "next": "realistic_ending"},
+        "B": {
+            "text": "秘密行动",
+            "next": [
+                {"node": "bad_ending_variant", "probability": 0.7},
+                {"node": "shadow_ending", "probability": 0.3}
+            ]
+        },
+        "C": {"text": "组织反抗", "next": "laborer_ending"},
+        "D": {"text": "随机行动", "next": [
+            {"node": "realistic_ending", "probability": 0.3},
+            {"node": "bad_ending_variant", "probability": 0.4},
+            {"node": "laborer_ending", "probability": 0.3}
         ]}
     }
 },
@@ -289,17 +310,17 @@
     }
 },
 "meet": {
-    "text": "神秘人Doro出现：\nA.分享橘子 B.查看相册 C.阅读古书\n（ta口袋里露出纸巾）",
+    "text": "神秘人Doro出现：\nA.分享橘子 B.查看相册 C.阅读古书 D.询问旅行经历",
     "options": {
         "A": {"text": "接受馈赠", "next": "orange_path"},
         "B": {"text": "翻看回忆", "next": "memory_lane"},
         "C": {"text": "研读禁书", "next": "mind_broken_end"},
-        "D": {"text": "抽取纸巾", "next": "jerboff_end"},
+        "D": {"text": "聆听游记", "next": "travel_path"},
         "E": {"text": "随机互动", "next": [
-            {"node": "orange_path", "probability": 0.2},
-            {"node": "memory_lane", "probability": 0.2},
-            {"node": "mind_broken_end", "probability": 0.3},
-            {"node": "jerboff_end", "probability": 0.3}
+            {"node": "orange_path", "probability": 0.25},
+            {"node": "memory_lane", "probability": 0.25},
+            {"node": "mind_broken_end", "probability": 0.25},
+            {"node": "travel_path", "probability": 0.25}
         ]}
     }
 },
@@ -319,6 +340,80 @@
             {"node": "orange_ending", "probability": 0.3},
             {"node": "good_end", "probability": 0.3},
             {"node": "marry_end", "probability": 0.4}
+        ]}
+    }
+},
+"travel_path": {
+    "text": "Doro向你展示旅行照片：\nA.城市天际线 B.乡村风光 C.异域文化 D.回归现实",
+    "options": {
+        "A": {"text": "向往都市", "next": "urban_adventure"},
+        "B": {"text": "寻找宁静", "next": "countryside_path"},
+        "C": {"text": "探索未知", "next": "cultural_exchange"},
+        "D": {"text": "面对现实", "next": "reality_check"},
+        "E": {"text": "随机选择", "next": [
+            {"node": "urban_adventure", "probability": 0.25},
+            {"node": "countryside_path", "probability": 0.25},
+            {"node": "cultural_exchange", "probability": 0.25},
+            {"node": "reality_check", "probability": 0.25}
+        ]}
+    }
+},
+"urban_adventure": {
+    "text": "霓虹灯下的城市：\nA.高楼探险 B.地铁迷宫 C.购买机票",
+    "options": {
+        "A": {"text": "攀登高峰", "next": "clouds_ending"},
+        "B": {"text": "地下冒险", "next": "drain_end"},
+        "C": {"text": "启程远行", "next": "tourism_ending"},
+        "D": {"text": "随机行动", "next": [
+            {"node": "clouds_ending", "probability": 0.3},
+            {"node": "drain_end", "probability": 0.3},
+            {"node": "tourism_ending", "probability": 0.4}
+        ]}
+    }
+},
+"countryside_path": {
+    "text": "田园诗意中：\nA.与农民聊天 B.观赏日落 C.体验生活",
+    "options": {
+        "A": {"text": "学习智慧", "next": "laborer_ending"}, 
+        "B": {"text": "沉思人生", "next": "realistic_ending"},
+        "C": {"text": "踏上旅程", "next": "tourism_ending"},
+        "D": {"text": "随机体验", "next": [
+            {"node": "laborer_ending", "probability": 0.3},
+            {"node": "realistic_ending", "probability": 0.4},
+            {"node": "tourism_ending", "probability": 0.3}
+        ]}
+    }
+},
+"cultural_exchange": {
+    "text": "异国风情让你着迷：\nA.学习语言 B.品尝美食 C.收集纪念品 D.享受甜点",
+    "options": {
+        "A": {"text": "努力沟通", "next": "postgraduate_ending"},
+        "B": {"text": "享受美味", "next": "kfc_end"},
+        "C": {"text": "环游世界", "next": "tourism_ending"},
+        "D": {"text": "沉迷甜腻", "next": "tangao_ending"},
+        "E": {"text": "随机选择", "next": [
+            {"node": "postgraduate_ending", "probability": 0.25},
+            {"node": "kfc_end", "probability": 0.25},
+            {"node": "tourism_ending", "probability": 0.25},
+            {"node": "tangao_ending", "probability": 0.25}
+        ]}
+    }
+},
+"reality_check": {
+    "text": "Doro提醒你旅行的代价：\nA.坚持梦想 B.面对现实 C.寻找平衡",
+    "options": {
+        "A": {"text": "追逐自由", "next": "tourism_ending"},
+        "B": {"text": "回归日常", "next": "realistic_ending"},
+        "C": {
+            "text": "中庸之道",
+            "next": [
+                {"node": "tourism_ending", "probability": 0.4},
+                {"node": "realistic_ending", "probability": 0.6}
+            ]
+        },
+        "D": {"text": "随机决定", "next": [
+            {"node": "tourism_ending", "probability": 0.3},
+            {"node": "realistic_ending", "probability": 0.7}
         ]}
     }
 },
@@ -359,14 +454,9 @@
 
 "drain_end": {
     "text": "在潮湿阴暗的下水道，你与Doro分享着发霉的哦润吉，四周弥漫着神秘又诡异的气息...",
-    "image": "1bb22576b2e253fae6b2ddca27cd3384.jpg",
+    "image": "drain_ending.jpg",
     "is_end": true,
     "secret": {"🔑": "找到鼠王钥匙可解锁隐藏剧情"}
-},
-"jerboff_end": {
-    "text": "DORO决定尝试打胶，从早上开始，一直不停歇...",
-    "image": "dajiao.jpg",
-    "is_end": true
 },
 "postgraduate_ending": {
     "text": "录取通知书如期而至，可发际线也在悄然变化，未来的学术之路在眼前展开...",
@@ -548,10 +638,34 @@
     "is_end": true
 },
 "true_end": {
-    "text": "你撕裂空间，一道璀璨裂缝浮现，Doro的声音在耳边回荡：‘原来你就是命定之人。’\n你成功跳脱这个虚拟轮回，获得‘旁观者之眼’，从此能看破所有世界线的秘密。",
+    "text": "你撕裂空间，一道璀璨裂缝浮现，Doro的声音在耳边回荡：'原来你就是命定之人。'\n你成功跳脱这个虚拟轮回，获得'旁观者之眼'，从此能看破所有世界线的秘密。",
     "image": "true_end.png",
     "is_end": true,
-    "secret": {"👁️": "解锁后可开启‘观测者模式’体验隐藏剧情"}
+    "secret": {"👁️": "解锁后可开启'观测者模式'体验隐藏剧情"}
+},
+"realistic_ending": {
+    "text": "现实的重力将你拉回地面，房租、工作、人际关系...所有被遗忘的责任涌现，你意识到这才是真正的生活。",
+    "image": "realistic_ending.png", 
+    "is_end": true,
+    "trigger": ["连续三次选择逃避现实"]
+},
+"tourism_ending": {
+    "text": "背上行囊，你踏上了环游世界的旅途。每一个城市都有Doro的足迹，每一段路程都是新的冒险...",
+    "image": "tourism_ending.jpg",
+    "is_end": true,
+    "condition": ["收集所有地区特产"]
+},
+"tangao_ending": {
+    "text": "在甜腻的糖膏世界中，你发现了最纯真的快乐，仿佛回到了无忧无虑的童年时光...",
+    "image": "tangao_ending.jpg", 
+    "is_end": true,
+    "trigger": ["连续选择甜食相关选项"]
+},
+"bad_ending_variant": {
+    "text": "命运的齿轮停止转动，灰暗的现实将你吞噬，但或许这也是另一种解脱...",
+    "image": "bad_ending.jpg",
+    "is_end": true,
+    "condition": ["触发多个负面事件"]
 }
 
 }
