@@ -10,7 +10,7 @@ import fetch from "node-fetch"
  */
 const num = 2
 
-export class doro extends plugin {
+export default class doro extends plugin {
   constructor() {
     super({
       name: "每日doro结局",
