@@ -119,10 +119,10 @@ for (const file of files) {
 
         // 检查 default 导出
         if (imported.default && imported.default.prototype instanceof plugin) {
-            // 键名建议与类名一致或文件名（无后缀）一致
-            // 如果 doro-game.js 导出的是 DoroAdventure 类
-            apps['DoroAdventure'] = imported.default; // 使用 default
-            logger.info(`[${pluginName}] 已载入 (default export): ${file}`);
+            // 动态获取类名作为键名，避免硬编码导致的覆盖问题
+            const className = imported.default.name;
+            apps[className] = imported.default;
+            logger.info(`[${pluginName}] 已载入 (default export): ${file} -> ${className}`);
         } else {
             logger.error(`[${pluginName}] 文件 ${file} 未导出有效的默认插件类`);
         }
